@@ -1,27 +1,25 @@
 import { CreateCustomerType } from './createCustomer.type';
 
 export class CustomerEntity {
-    private _id: string;
-    private _name: string;
-    private _email: string;
-    private phone: string;
-    private birthDate: string;
-    private rg: string;
-    private cpf: string;
-    
-    constructor(payload: CreateCustomerType) {
-        
-    }
+  private _id: string;
+  private _name: string;
+  private _email: string;
+  private phone: string;
+  private birthDate: string;
+  private rg: string;
+  private cpf: string;
 
-    get id () {
-        return this._id;
-    }
+  constructor(payload: CreateCustomerType) {}
 
-    get name () {
-        return this._name;
-    }
+  get id() {
+    return this._id;
+  }
 
-    get email () {
-        return this._email;
-    }
+  get name() {
+    return this._name;
+  }
+
+  get email() {
+    return this._email;
+  }
 }
