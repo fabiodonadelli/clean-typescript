@@ -1,19 +1,20 @@
-import { CreateCustomerUsecase } from './createCostumer.usecase';
+import { CreateCustomerType } from './createCustomer.type';
+import { CreateCustomerUsecase } from './createCustumer.usecase';
 
 describe('CreateCustomerUsecase', () => {
   it('deve criar um cliente', () => {
-    const user = {
+    const user: CreateCustomerType = {
       name: expect.any('string'),
       email: 'email@email.com',
       cpf: '41544758289',
-      telefone: '19987801972',
-      data_nascimento: new Date(),
+      phone: '19987801972',
+      birthDate: new Date(),
     };
 
     const usecase = new CreateCustomerUsecase();
     const userCreated = usecase.save(user);
-
+    
     expect(userCreated).toHaveProperty('id');
-    expect(userCreated).toBeInstanceOf(CreateCustomerUsecase);
+    expect(userCreated.email).toBe(user.email);
   });
 });
