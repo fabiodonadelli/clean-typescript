@@ -2,25 +2,25 @@ import { CreateCustomerType } from './createCustomer.type';
 import { CustomerEntity } from './customer.entity';
 
 describe('CustomerEntity', () => {
-  let customer: CustomerEntity;
-  const mockData: CreateCustomerType = {
-    name: 'Jhon',
-    email: 'jhon@email.com',
-    phone: '19988099799',
-    birthDate: '10/11/1985',
-    cpf: '12345678909',
-  };
+  let customerMock: CreateCustomerType;
 
-  beforeEach(() => {
-    customer = new CustomerEntity(mockData);
+  beforeAll(() => {
+    customerMock = {
+      name: 'Jhon',
+      email: 'jhon@email.com',
+      phone: '19988099799',
+      birthDate: new Date(),
+      cpf: '12345678909',
+    };    
   });
 
   it('should create a Customer instance', () => {
+    let customer = new CustomerEntity(customerMock);
     expect(customer).toBeDefined();
   });
 
-  // it('should have required fields', () => {
-  //     expect(customer.name).toBe("Jhon Doe");
-  //     expect(customer.email).toBe("jhon.doe@mail.com");
-  // });
+  it('deve retornar erro ao criar customer com cpf incorreto', () => {
+    expect(() => new CustomerEntity({...customerMock, cpf: '123'})).toThrow('CPF Incorreto');
+  })
+
 });

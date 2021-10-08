@@ -1,8 +1,9 @@
 export type CreateCustomerType = {
+  cpf: string;
   name: string;
   email: string;
+  birthDate: Date;
   phone?: string;
-  birthDate: string;
+  id?:string;
   rg?: string;
-  cpf: string;
 };
